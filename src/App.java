@@ -68,6 +68,5 @@ public class App {
         System.out.println("\nLa persona con la edad "+bus+" es: "+lista.get(cond).getNombre());
 
         xd.close();
-
     }
 }
