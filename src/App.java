@@ -16,15 +16,28 @@ public class App {
         // lista.add(new Persona("Alicia", 9));
         // lista.add(new Persona("Jaime", 40));
 
-        System.out.print("Ingrese cantidad de personas: ");
-        int cantidad= xd.nextInt();
+        int cantidad;
+        do {
+            System.out.print("Ingrese cantidad de personas (mayor que 0): ");
+            cantidad = xd.nextInt();
+            if (cantidad <= 0) {
+                System.out.println("Número inválido. Por favor, ingrese un número mayor que 0.");
+            }
+        } while (cantidad <= 0);
 
         for (int i = 0; i < cantidad; i++) {
             System.out.println("Agregue persona "+(i+1)+" :");
             System.out.print("Nombre: ");
             String nombre= xd.next();
-            System.out.print("Ingrese la edad: ");
-            int edad= xd.nextInt();
+            int edad;
+            do {
+                System.out.print("Ingrese la edad (mayor que 0): ");
+                edad = xd.nextInt();
+                if (edad <= 0) {
+                    System.out.println("Edad inválida. Por favor, ingrese una edad mayor que 0.");
+                }
+            } while (edad <= 0); 
+
             Persona p= new Persona(nombre, edad);
             lista.add(p);
         }
@@ -34,7 +47,7 @@ public class App {
         }
 
         MetodoBus b= new MetodoBus();
-        b.burbujaAsc(lista);
+        b.insercionAsc(lista);
 
         System.out.println("\n\nLista de personas ordenada: ");
         for (Persona p : lista) {

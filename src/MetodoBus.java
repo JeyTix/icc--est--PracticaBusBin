@@ -1,18 +1,19 @@
 import java.util.ArrayList;
 
 public class MetodoBus {
-    public void burbujaAsc(ArrayList<Persona> lista) {
-        int n = lista.size();
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (lista.get(j).getEdad() > lista.get(j + 1).getEdad()) {
-                    Persona temp = lista.get(j);
-                    lista.set(j, lista.get(j + 1));
-                    lista.set(j + 1, temp);
-                }
+    public void insercionAsc(ArrayList<Persona> lista) {
+        for (int j = 1; j < lista.size(); j++) {
+            Persona key = lista.get(j);
+            int i = j - 1;
+    
+            while (i > -1 && lista.get(i).getEdad() > key.getEdad()) {
+                lista.set(i + 1, lista.get(i));
+                i--;
             }
+            lista.set(i + 1, key);
         }
     }
+    
 
     public int busquedaBinaria(ArrayList<Persona> lista, int value) {
         int inicio = 0;
